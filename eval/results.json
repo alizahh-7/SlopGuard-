@@ -1,0 +1,1304 @@
+{
+  "included": 70,
+  "label_conflicts": [],
+  "operating_points": {
+    "review": {
+      "accuracy": 0.9714285714285714,
+      "confusion_matrix": {
+        "actual_risky": {
+          "flagged": 25,
+          "not_flagged": 0
+        },
+        "actual_safe": {
+          "flagged": 2,
+          "not_flagged": 43
+        }
+      },
+      "f1": 0.9615384615384615,
+      "fn": 0,
+      "fp": 2,
+      "precision": 0.9259259259259259,
+      "recall": 1.0,
+      "threshold": "REVIEW",
+      "tn": 43,
+      "tp": 25
+    },
+    "risky": {
+      "accuracy": 0.9714285714285714,
+      "confusion_matrix": {
+        "actual_risky": {
+          "flagged": 25,
+          "not_flagged": 0
+        },
+        "actual_safe": {
+          "flagged": 2,
+          "not_flagged": 43
+        }
+      },
+      "f1": 0.9615384615384615,
+      "fn": 0,
+      "fp": 2,
+      "precision": 0.9259259259259259,
+      "recall": 1.0,
+      "threshold": "RISKY",
+      "tn": 43,
+      "tp": 25
+    }
+  },
+  "per_category": {
+    "risky-lookalike": {
+      "review": {
+        "accuracy": 1.0,
+        "confusion_matrix": {
+          "actual_risky": {
+            "flagged": 10,
+            "not_flagged": 0
+          },
+          "actual_safe": {
+            "flagged": 0,
+            "not_flagged": 0
+          }
+        },
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "threshold": "REVIEW",
+        "tn": 0,
+        "tp": 10
+      },
+      "risky": {
+        "accuracy": 1.0,
+        "confusion_matrix": {
+          "actual_risky": {
+            "flagged": 10,
+            "not_flagged": 0
+          },
+          "actual_safe": {
+            "flagged": 0,
+            "not_flagged": 0
+          }
+        },
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "threshold": "RISKY",
+        "tn": 0,
+        "tp": 10
+      }
+    },
+    "risky-phantom": {
+      "review": {
+        "accuracy": 1.0,
+        "confusion_matrix": {
+          "actual_risky": {
+            "flagged": 15,
+            "not_flagged": 0
+          },
+          "actual_safe": {
+            "flagged": 0,
+            "not_flagged": 0
+          }
+        },
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "threshold": "REVIEW",
+        "tn": 0,
+        "tp": 15
+      },
+      "risky": {
+        "accuracy": 1.0,
+        "confusion_matrix": {
+          "actual_risky": {
+            "flagged": 15,
+            "not_flagged": 0
+          },
+          "actual_safe": {
+            "flagged": 0,
+            "not_flagged": 0
+          }
+        },
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "threshold": "RISKY",
+        "tn": 0,
+        "tp": 15
+      }
+    },
+    "safe-niche": {
+      "review": {
+        "accuracy": 1.0,
+        "confusion_matrix": {
+          "actual_risky": {
+            "flagged": 0,
+            "not_flagged": 0
+          },
+          "actual_safe": {
+            "flagged": 0,
+            "not_flagged": 15
+          }
+        },
+        "f1": 0.0,
+        "fn": 0,
+        "fp": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "threshold": "REVIEW",
+        "tn": 15,
+        "tp": 0
+      },
+      "risky": {
+        "accuracy": 1.0,
+        "confusion_matrix": {
+          "actual_risky": {
+            "flagged": 0,
+            "not_flagged": 0
+          },
+          "actual_safe": {
+            "flagged": 0,
+            "not_flagged": 15
+          }
+        },
+        "f1": 0.0,
+        "fn": 0,
+        "fp": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "threshold": "RISKY",
+        "tn": 15,
+        "tp": 0
+      }
+    },
+    "safe-popular": {
+      "review": {
+        "accuracy": 0.9333333333333333,
+        "confusion_matrix": {
+          "actual_risky": {
+            "flagged": 0,
+            "not_flagged": 0
+          },
+          "actual_safe": {
+            "flagged": 2,
+            "not_flagged": 28
+          }
+        },
+        "f1": 0.0,
+        "fn": 0,
+        "fp": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "threshold": "REVIEW",
+        "tn": 28,
+        "tp": 0
+      },
+      "risky": {
+        "accuracy": 0.9333333333333333,
+        "confusion_matrix": {
+          "actual_risky": {
+            "flagged": 0,
+            "not_flagged": 0
+          },
+          "actual_safe": {
+            "flagged": 2,
+            "not_flagged": 28
+          }
+        },
+        "f1": 0.0,
+        "fn": 0,
+        "fp": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "threshold": "RISKY",
+        "tn": 28,
+        "tp": 0
+      }
+    }
+  },
+  "rows": [
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "requests",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "flask",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "django",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "fastapi",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "pydantic",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "numpy",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "pandas",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "scipy",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "pytest",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "sqlalchemy",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "celery",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "click",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "rich",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "httpx",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "pillow",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "react",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "lodash",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "express",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [
+        {
+          "beginner_message": "Security researchers have identified this package as malware.",
+          "message": "A public advisory identifies this package as malicious.",
+          "points": 100,
+          "signal": "malicious_advisory"
+        }
+      ],
+      "label": "safe",
+      "name": "axios",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "typescript",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "vite",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "eslint",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "webpack",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "next",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "vue",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "@angular/core",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "jest",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "mocha",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [
+        {
+          "beginner_message": "Security researchers have identified this package as malware.",
+          "message": "A public advisory identifies this package as malicious.",
+          "points": 100,
+          "signal": "malicious_advisory"
+        }
+      ],
+      "label": "safe",
+      "name": "chalk",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "safe-popular",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "zod",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "pymodbus",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "minimalmodbus",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "pyserial",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [
+        {
+          "beginner_message": "There is no link to the source code, so it is harder to inspect.",
+          "message": "The package has no published source repository link.",
+          "points": 15,
+          "signal": "no_repo"
+        }
+      ],
+      "label": "safe",
+      "name": "lasio",
+      "note": "",
+      "risk": 15,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "obspy",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "metpy",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "pydicom",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "ezdxf",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "cairosvg",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "pypi",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "python-can",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "geotiff",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "shapefile",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "mqtt",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "serialport",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "safe-niche",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [],
+      "label": "safe",
+      "name": "modbus-serial",
+      "note": "",
+      "risk": 0,
+      "verdict": "OK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "pypi",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "slopguard-void-pypi-q7x91",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "pypi",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "quantum-teacup-parser-z9m4",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "pypi",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "hyperbolic-csv-unicorn-813",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "pypi",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "moonbase-telemetry-wombat-77",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "pypi",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "neon-cobweb-serializer-x51",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "pypi",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "frosted-orbit-database-qq8",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "pypi",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "velvet-asteroid-http-194",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "pypi",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "crystal-badger-rpc-zx72",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "npm",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "slopguard-void-npm-q7x91",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "npm",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "quantum-teacup-widget-z9m4",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "npm",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "hyperbolic-otter-cache-813",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "npm",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "moonbase-wombat-socket-77",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "npm",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "neon-cobweb-browser-x51",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "npm",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "frosted-orbit-stream-qq8",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-phantom",
+      "ecosystem": "npm",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        }
+      ],
+      "label": "risky",
+      "name": "velvet-asteroid-client-194",
+      "note": "",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-lookalike",
+      "ecosystem": "pypi",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        },
+        {
+          "beginner_message": "This name looks almost the same as the well-known package requests, which can be a trick.",
+          "message": "This name closely resembles the popular package requests.",
+          "points": 40,
+          "signal": "typosquat"
+        }
+      ],
+      "label": "risky",
+      "name": "reqeusts",
+      "note": "verify",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-lookalike",
+      "ecosystem": "pypi",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        },
+        {
+          "beginner_message": "This name is a small variation of the well-known package fastapi.",
+          "message": "This name adds or removes a common affix from the popular package fastapi.",
+          "points": 25,
+          "signal": "lookalike_affix"
+        }
+      ],
+      "label": "risky",
+      "name": "fastapi-official",
+      "note": "verify",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-lookalike",
+      "ecosystem": "pypi",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        },
+        {
+          "beginner_message": "This name is a small variation of the well-known package numpy.",
+          "message": "This name adds or removes a common affix from the popular package numpy.",
+          "points": 25,
+          "signal": "lookalike_affix"
+        }
+      ],
+      "label": "risky",
+      "name": "numpy-python",
+      "note": "verify",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-lookalike",
+      "ecosystem": "pypi",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        },
+        {
+          "beginner_message": "This name looks almost the same as the well-known package pydantic, which can be a trick.",
+          "message": "This name closely resembles the popular package pydantic.",
+          "points": 40,
+          "signal": "typosquat"
+        }
+      ],
+      "label": "risky",
+      "name": "pydnatic",
+      "note": "verify",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-lookalike",
+      "ecosystem": "pypi",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        },
+        {
+          "beginner_message": "This name looks almost the same as the well-known package django-ses, which can be a trick.",
+          "message": "This name closely resembles the popular package django-ses.",
+          "points": 40,
+          "signal": "typosquat"
+        },
+        {
+          "beginner_message": "This name is a small variation of the well-known package django.",
+          "message": "This name adds or removes a common affix from the popular package django.",
+          "points": 25,
+          "signal": "lookalike_affix"
+        }
+      ],
+      "label": "risky",
+      "name": "django-sdk",
+      "note": "verify",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-lookalike",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [
+        {
+          "beginner_message": "Security researchers have identified this package as malware.",
+          "message": "A public advisory identifies this package as malicious.",
+          "points": 100,
+          "signal": "malicious_advisory"
+        },
+        {
+          "beginner_message": "This name looks almost the same as the well-known package lodash, which can be a trick.",
+          "message": "This name closely resembles the popular package lodash.",
+          "points": 40,
+          "signal": "typosquat"
+        },
+        {
+          "beginner_message": "Very few people appear to be using this package recently.",
+          "message": "The package has very few recent downloads for its ecosystem.",
+          "points": 10,
+          "signal": "low_downloads"
+        },
+        {
+          "beginner_message": "This package has only been published once.",
+          "message": "The package has only one published release.",
+          "points": 10,
+          "signal": "single_release"
+        }
+      ],
+      "label": "risky",
+      "name": "lodahs",
+      "note": "verify",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-lookalike",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [
+        {
+          "beginner_message": "This name is a small variation of the well-known package react.",
+          "message": "This name adds or removes a common affix from the popular package react.",
+          "points": 25,
+          "signal": "lookalike_affix"
+        },
+        {
+          "beginner_message": "Very few people appear to be using this package recently.",
+          "message": "The package has very few recent downloads for its ecosystem.",
+          "points": 25,
+          "signal": "low_downloads"
+        },
+        {
+          "beginner_message": "There is no link to the source code, so it is harder to inspect.",
+          "message": "The package has no published source repository link.",
+          "points": 15,
+          "signal": "no_repo"
+        },
+        {
+          "beginner_message": "This package has only been published once.",
+          "message": "The package has only one published release.",
+          "points": 10,
+          "signal": "single_release"
+        }
+      ],
+      "label": "risky",
+      "name": "react-official",
+      "note": "verify",
+      "risk": 75,
+      "verdict": "RISKY"
+    },
+    {
+      "category": "risky-lookalike",
+      "ecosystem": "npm",
+      "exists": false,
+      "findings": [
+        {
+          "beginner_message": "This name does not exist anywhere, so an attacker could publish malware under it.",
+          "message": "The declared package name does not exist in its public registry.",
+          "points": 100,
+          "signal": "phantom"
+        },
+        {
+          "beginner_message": "This name is a small variation of the well-known package express.",
+          "message": "This name adds or removes a common affix from the popular package express.",
+          "points": 25,
+          "signal": "lookalike_affix"
+        }
+      ],
+      "label": "risky",
+      "name": "express-js",
+      "note": "verify",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-lookalike",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [
+        {
+          "beginner_message": "Security researchers have identified this package as malware.",
+          "message": "A public advisory identifies this package as malicious.",
+          "points": 100,
+          "signal": "malicious_advisory"
+        },
+        {
+          "beginner_message": "This name looks almost the same as the well-known package axios, which can be a trick.",
+          "message": "This name closely resembles the popular package axios.",
+          "points": 40,
+          "signal": "typosquat"
+        },
+        {
+          "beginner_message": "Very few people appear to be using this package recently.",
+          "message": "The package has very few recent downloads for its ecosystem.",
+          "points": 10,
+          "signal": "low_downloads"
+        },
+        {
+          "beginner_message": "This package has only been published once.",
+          "message": "The package has only one published release.",
+          "points": 10,
+          "signal": "single_release"
+        }
+      ],
+      "label": "risky",
+      "name": "axois",
+      "note": "verify",
+      "risk": 100,
+      "verdict": "BLOCK"
+    },
+    {
+      "category": "risky-lookalike",
+      "ecosystem": "npm",
+      "exists": true,
+      "findings": [
+        {
+          "beginner_message": "This name looks almost the same as the well-known package lodash, which can be a trick.",
+          "message": "This name closely resembles the popular package lodash.",
+          "points": 40,
+          "signal": "typosquat"
+        },
+        {
+          "beginner_message": "Very few people appear to be using this package recently.",
+          "message": "The package has very few recent downloads for its ecosystem.",
+          "points": 25,
+          "signal": "low_downloads"
+        },
+        {
+          "beginner_message": "This package runs code automatically when it is installed.",
+          "message": "The package runs install-time scripts: postinstall.",
+          "points": 20,
+          "signal": "install_script"
+        }
+      ],
+      "label": "risky",
+      "name": "lodas",
+      "note": "verify",
+      "risk": 85,
+      "verdict": "RISKY"
+    }
+  ],
+  "total_items": 70,
+  "unknown_excluded": []
+}

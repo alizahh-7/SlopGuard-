@@ -1,0 +1,22 @@
+name: SlopGuard example
+
+on:
+  pull_request:
+    paths:
+      - "**/requirements*.txt"
+      - "**/package.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./
+        with:
+          fail-on: risky

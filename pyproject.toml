@@ -1,0 +1,19 @@
+[project]
+name = "slopguard"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "httpx",
+    "pydantic>=2",
+    "python-dotenv",
+    "rapidfuzz",
+    "typer",
+    "uvicorn[standard]",
+]
+
+[project.scripts]
+slopguard = "cli.main:app"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

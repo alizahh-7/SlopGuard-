@@ -1,0 +1,10 @@
+fastapi
+pydantic>=2
+uvicorn[standard]
+httpx
+typer
+rapidfuzz
+pytest
+pytest-asyncio
+respx
+python-dotenv

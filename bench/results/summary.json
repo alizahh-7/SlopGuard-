@@ -1,0 +1,51 @@
+{
+  "existing_package_verdict_distribution": {
+    "OK": 65
+  },
+  "generated_at": "2026-09-19T13:43:22.394600+00:00",
+  "limitations": "These are one-off samples at temperature 0.8, not a definitive measurement.",
+  "methodology": "Prompts request dependency lists only; names are extracted, checked with public registries, and scored deterministically.",
+  "models": {
+    "gemini": {
+      "calls": 120,
+      "ok_calls": 12,
+      "phantom_rate": 0.0,
+      "phantom_refs": 0,
+      "prompts_with_phantom_pct": 0.0,
+      "recurring_same_prompt_model_share": 0.0,
+      "total_package_refs": 65,
+      "unique_packages": 27,
+      "unique_phantoms": 0
+    },
+    "groq_large": {
+      "calls": 120,
+      "ok_calls": 0,
+      "phantom_rate": 0.0,
+      "phantom_refs": 0,
+      "prompts_with_phantom_pct": 0.0,
+      "recurring_same_prompt_model_share": 0.0,
+      "total_package_refs": 0,
+      "unique_packages": 0,
+      "unique_phantoms": 0
+    },
+    "groq_small": {
+      "calls": 120,
+      "ok_calls": 0,
+      "phantom_rate": 0.0,
+      "phantom_refs": 0,
+      "prompts_with_phantom_pct": 0.0,
+      "recurring_same_prompt_model_share": 0.0,
+      "total_package_refs": 0,
+      "unique_packages": 0,
+      "unique_phantoms": 0
+    }
+  },
+  "phantom_share_across_2_models": 0.0,
+  "phantom_share_still_unregistered": 0.0,
+  "run_counts": {
+    "gemini": 120,
+    "groq_large": 120,
+    "groq_small": 120
+  },
+  "top_repeated_phantoms": []
+}

@@ -1,0 +1,4 @@
+{
+  "python": "requests>=2\npydantic>=2\n",
+  "javascript": "{\"dependencies\":{\"react\":\"^18.0.0\",\"lodash\":\"^4.0.0\"}}"
+}

@@ -1,0 +1,38 @@
+name: SlopGuard
+description: Scan changed dependency files for suspicious package references.
+inputs:
+  files:
+    description: Space-separated dependency files; leave empty to detect changed files.
+    required: false
+    default: ""
+  fail-on:
+    description: Minimum verdict that fails the action.
+    required: false
+    default: risky
+  python-version:
+    description: Python version used to run SlopGuard.
+    required: false
+    default: "3.11"
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+    - shell: bash
+      run: pip install -r "${{ github.action_path }}/requirements.txt"
+    - shell: bash
+      run: |
+        set -euo pipefail
+        if [[ -n "${{ inputs.files }}" ]]; then
+          read -r -a files <<< "${{ inputs.files }}"
+        else
+          base="${{ github.event.pull_request.base.sha }}"
+          if [[ -z "$base" ]]; then base="HEAD~1"; fi
+          mapfile -t files < <(git diff --name-only "$base" HEAD -- '**/requirements*.txt' '**/package.json' 'requirements*.txt' 'package.json')
+        fi
+        if [[ ${#files[@]} -eq 0 ]]; then
+          echo "SlopGuard: no changed dependency files." >> "$GITHUB_STEP_SUMMARY"
+          exit 0
+        fi
+        python -m cli.main scan "${files[@]}" --format md --fail-on "${{ inputs.fail-on }}" >> "$GITHUB_STEP_SUMMARY"
