@@ -4,7 +4,7 @@ import './App.css'
 import Explainer from './Explainer.jsx'
 import FixIt from './FixIt.jsx'
 
-const GITHUB_URL = 'https://github.com/slopguard/slopguard'
+const GITHUB_URL = 'https://github.com/alizahh-7/SlopGuard-'
 const API_BASE = import.meta.env.VITE_API_BASE_URL || ''
 const endpoint = (path) => `${API_BASE.replace(/\/$/, '')}${path}`
 const verdictOrder = { OK: 0, UNKNOWN: 1, REVIEW: 2, RISKY: 3, BLOCK: 4 }
