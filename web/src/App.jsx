@@ -6,7 +6,7 @@ import FixIt from './FixIt.jsx'
 
 const GITHUB_URL = 'https://github.com/slopguard/slopguard'
 const API_BASE = import.meta.env.VITE_API_BASE_URL || ''
-const endpoint = (path) => `${API_BASE}${path}`
+const endpoint = (path) => `${API_BASE.replace(/\/$/, '')}${path}`
 const verdictOrder = { OK: 0, UNKNOWN: 1, REVIEW: 2, RISKY: 3, BLOCK: 4 }
 const formats = [['auto', 'Auto detect'], ['requirements', 'requirements.txt'], ['package_json', 'package.json'], ['python', 'Python imports'], ['javascript', 'JavaScript imports'], ['text', 'Install commands / text']]
 const evaluation = { included: 70, precision: '100.0%', recall: '100.0%', f1: '100.0%', accuracy: '100.0%' }
