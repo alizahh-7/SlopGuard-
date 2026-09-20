@@ -269,8 +269,8 @@ slopguard scan requirements.txt --fail-on risky
 
 ## 10. Deploy
 
-- **Backend (Render):** build `pip install -r requirements.txt`, start `uvicorn api.main:app --host 0.0.0.0 --port $PORT`. Environment: `ALLOWED_ORIGINS=<your frontend URL, no trailing slash>` and `TRUST_PROXY=1`.
-- **Frontend (Vercel):** root directory `web`, environment `VITE_API_BASE_URL=<your Render URL>`.
+- **Backend (Vercel):** deployed at `https://slopguard-api.vercel.app`. Environment: `ALLOWED_ORIGINS=https://slop-guard.vercel.app` and `TRUST_PROXY=1`.
+- **Frontend (Vercel):** root directory `web`, environment `VITE_API_BASE_URL=https://slopguard-api.vercel.app`.
 
 ---
 
