@@ -120,8 +120,7 @@ These are real runs against the live scanner.
 | Input | Result |
 |---|---|
 | `flask==3.0.3`, `requests`, `slopguard-demo-phantom-pkg-93817` | Phantom package **BLOCK** (risk 100/100). Fix it for me removes only that line and keeps `flask==3.0.3`. |
-| `pip install reqeusts` | **BLOCK**: not registered, and a typosquat of `requests` (suggests `requests`). |
-| `npm install lodahs` | **BLOCK**: public advisory identifies it as malicious; also a lookalike of `lodash`. |
+| `pip install reqeusts` / `npm install lodahs` | Tested as typo/lookalike inputs; results depend on registry verification, so we do not use these runs as a BLOCK claim. |
 | `import cv2, yaml, PIL, sklearn, bs4, requests` plus `os`, `json` | All real packages resolved to their correct install names (`opencv-python`, `pyyaml`, `pillow`, `scikit-learn`, `beautifulsoup4`). `os` and `json` ignored. No false alarms. |
 | `import dateutil, attr, jwt, dotenv, serial` | Mapped to `python-dateutil`, `attrs`, `pyjwt`, `python-dotenv`, `pyserial`. |
 | `axios`, `chalk`, `react`, `express`, `lodash` (`package.json`) | **OK**. Axios and chalk show an informational "historical advisory" note. |
