@@ -1,0 +1,24 @@
+---
+description: SlopGuard project context and rules
+alwaysApply: true
+---
+# What SlopGuard is
+A supply-chain security tool for AI-written code. Problem ("slopsquatting"): AI coding assistants sometimes invent package names that do not exist; attackers can register those names on PyPI or npm with malware, and anyone who runs pip/npm install is compromised. SlopGuard checks every dependency BEFORE install and returns a verdict with evidence. Audience: students, self-taught developers, small teams and anyone pasting AI-generated code; the web app needs no terminal. Built for the TLN Cybersecurity Challenge 2026 (judged equally on impact, technical implementation, innovation, UX/design, presentation).
+
+# How it works
+Input (requirements.txt, package.json, Python/JS imports, pip/npm install commands) -> core/extract.py -> core/registry.py (read-only PyPI, npm, OSV lookups, cached) -> core/signals.py + core/scorer.py (deterministic 0-100 risk from named signals) -> verdict OK | UNKNOWN | REVIEW | RISKY | BLOCK, findings (technical + beginner wording), suggested alternative.
+Bands: 0-24 OK, 25-59 REVIEW, 60-99 RISKY. BLOCK = declared phantom package or malicious advisory (100). UNKNOWN = lookup failed, never treated as safe or unsafe. Only a registry HTTP 404 means "does not exist".
+Surfaces: api/ (FastAPI: POST /api/scan, GET /api/samples, GET /api/benchmark, GET /api/health), cli/ (`python -m cli.main scan`), action.yml + .github/workflows, web/ (React + Vite, design tokens in web/src/App.css), bench/, eval/, tests/.
+
+# Rules
+- Registry and advisory lookups are READ-ONLY. Never install, execute or publish packages. Never execute scanned code.
+- Never store or log user-submitted code or dependency text. Only package names, verdicts and scores may be persisted or sent to third parties.
+- Scoring stays deterministic. No LLM call in the scan path. core/explain.py is template-only.
+- Reuse core/. Do not rename or break API contracts, CLI commands or the verdict set.
+- Only create or modify the files named in the task. Do not refactor working code; prefer new modules.
+- Never open, print or commit .env or keys. Never touch bench/cache or bench/results/private.
+- Do not add dependencies to requirements.txt unless the task says so (production deploy uses it).
+- Frontend: keep existing design tokens and plain CSS; no new UI libraries; no external fonts or CDNs.
+- Environment: Windows PowerShell. Tests: python -m pytest -q. API: python -m uvicorn api.main:app --port 8000. Frontend: cd web; npm run dev.
+- Run pytest before and after every task. Add tests for every new module.
+- End with a short summary: files changed, and exact PowerShell commands to verify.

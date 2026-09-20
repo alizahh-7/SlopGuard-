@@ -61,6 +61,8 @@ class PackageInfo(BaseModel):
     install_scripts: list[str] = Field(default_factory=list)
     osv_malicious: bool = False
     osv_ids: list[str] = Field(default_factory=list)
+    latest_version: str | None = None
+    osv_check_failed: bool = False
     lookup_errors: list[str] = Field(default_factory=list)
 
 

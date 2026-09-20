@@ -34,7 +34,7 @@ def client(handler):
 
 def pypi_payload() -> dict:
     return {
-        "info": {"project_urls": {"Source Code": "https://github.com/acme/widget"}},
+        "info": {"version": "2.0", "project_urls": {"Source Code": "https://github.com/acme/widget"}},
         "releases": {
             "1.0": [{"upload_time_iso_8601": "2022-02-01T00:00:00Z"}],
             "2.0": [{"upload_time_iso_8601": "2021-01-01T00:00:00Z"}],
@@ -59,6 +59,7 @@ async def test_pypi_200_metadata_downloads_and_osv(isolated_cache) -> None:
     assert info.created_at and info.created_at.year == 2021
     assert info.repo_url == "https://github.com/acme/widget"
     assert (info.downloads, info.downloads_period) == (42, "month")
+    assert info.latest_version == "2.0"
 
 
 @async_test
@@ -100,6 +101,7 @@ async def test_npm_scoped_metadata_scripts_and_repo_normalization(isolated_cache
     async with client(handler) as http_client:
         info = await registry.fetch_package_info(ref("@scope/pkg", Ecosystem.NPM), http_client)
     assert info.exists is True
+    assert info.latest_version == "1.0.0"
     assert info.install_scripts == ["preinstall", "install"]
     assert info.repo_url == "https://github.com/acme/pkg"
     assert (info.downloads, info.downloads_period) == (9, "week")

@@ -42,3 +42,33 @@ def test_well_established_package_is_ok_and_summary_uses_order() -> None:
     assert (verdict.risk, verdict.verdict) == (0, "OK")
     assert result.summary.counts["OK"] == 1
     assert result.summary.worst_verdict == "OK"
+
+
+def test_historical_advisory_is_not_block() -> None:
+    verdict = score_package(
+        ref("axios", Ecosystem.NPM),
+        PackageInfo(name="axios", ecosystem="npm", exists=True, osv_ids=["MAL-2023-1"], latest_version="1.7.0", repo_url="https://example.test/axios"),
+        SignalContext(NOW),
+    )
+    assert verdict.verdict != "BLOCK"
+    assert "historical_advisory" in {finding.signal for finding in verdict.findings}
+
+
+def test_osv_check_failed_is_unknown() -> None:
+    verdict = score_package(
+        ref("chalk", Ecosystem.NPM),
+        PackageInfo(name="chalk", ecosystem="npm", exists=True, osv_ids=["MAL-2023-1"], latest_version="5.0.0", osv_check_failed=True),
+        SignalContext(NOW),
+    )
+    assert (verdict.verdict, verdict.risk) == ("UNKNOWN", 0)
+    assert verdict.findings[0].message == "An advisory exists but could not be confirmed against the latest version"
+
+
+def test_unknown_latest_version_does_not_block_on_advisory_ids() -> None:
+    verdict = score_package(
+        ref("pkg"),
+        PackageInfo(name="pkg", ecosystem="pypi", exists=True, osv_ids=["MAL-2023-1"], latest_version=None, repo_url="https://example.test/pkg"),
+        SignalContext(NOW),
+    )
+    assert verdict.verdict != "BLOCK"
+    assert "malicious_advisory" not in {finding.signal for finding in verdict.findings}

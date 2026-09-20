@@ -115,6 +115,20 @@ def malicious_advisory(ref: PackageRef, info: PackageInfo, ctx: SignalContext) -
     return None
 
 
+def historical_advisory(ref: PackageRef, info: PackageInfo, ctx: SignalContext) -> Finding | None:
+    if info.osv_check_failed or info.osv_malicious or not info.latest_version:
+        return None
+    if any(identifier.startswith("MAL-") for identifier in info.osv_ids):
+        return Finding(signal="historical_advisory", points=0, message="An advisory exists for older versions only", beginner_message="A past version of this package was reported as malicious. The current version is not affected.")
+    return None
+
+
+def advisory_unconfirmed(ref: PackageRef, info: PackageInfo, ctx: SignalContext) -> Finding | None:
+    if info.osv_check_failed:
+        return Finding(signal="advisory_unconfirmed", points=0, message="An advisory exists but could not be confirmed against the latest version", beginner_message="A security advisory exists, but we could not confirm whether the current version is affected.")
+    return None
+
+
 def typosquat(ref: PackageRef, info: PackageInfo, ctx: SignalContext) -> Finding | None:
     top = ctx.top_for(ref.ecosystem)
     if ref.name in top or len(ref.name) < 4:
@@ -188,5 +202,5 @@ def lookup_failed(ref: PackageRef, info: PackageInfo, ctx: SignalContext) -> Fin
 
 
 SIGNALS: list[Callable[[PackageRef, PackageInfo, SignalContext], Finding | None]] = [
-    phantom, malicious_advisory, typosquat, lookalike_affix, very_new, low_downloads, no_repo, single_release, install_script, lookup_failed,
+    phantom, malicious_advisory, historical_advisory, advisory_unconfirmed, typosquat, lookalike_affix, very_new, low_downloads, no_repo, single_release, install_script, lookup_failed,
 ]

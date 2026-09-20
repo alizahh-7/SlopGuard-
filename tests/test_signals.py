@@ -29,6 +29,8 @@ def findings(ref: PackageRef, info: PackageInfo, ctx: SignalContext) -> dict[str
         (make_ref("ghost"), make_info("ghost", exists=False), SignalContext(NOW), {"phantom": 100}),
         (make_ref("ghost", source="import"), make_info("ghost", exists=False), SignalContext(NOW), {"phantom": 70}),
         (make_ref("bad"), make_info("bad", osv_malicious=True), SignalContext(NOW), {"malicious_advisory": 100}),
+        (make_ref("old-mal"), make_info("old-mal", osv_ids=["MAL-2024-1"], latest_version="2.0.0"), SignalContext(NOW), {"historical_advisory": 0}),
+        (make_ref("unconfirmed"), make_info("unconfirmed", osv_ids=["MAL-2024-1"], latest_version="2.0.0", osv_check_failed=True), SignalContext(NOW), {"advisory_unconfirmed": 0}),
         (make_ref("reqeusts"), make_info("reqeusts"), SignalContext(NOW, ("requests",)), {"typosquat": 40}),
         (make_ref("abc"), make_info("abc"), SignalContext(NOW, ("abd",)), {}),
         (make_ref("requests"), make_info("requests"), SignalContext(NOW, ("requests",)), {}),

@@ -120,6 +120,7 @@ def _pypi_info(ref: PackageRef, data: dict[str, Any]) -> PackageInfo:
         if parsed is not None
     ]
     project = data.get("info") if isinstance(data.get("info"), dict) else {}
+    version = project.get("version")
     return PackageInfo(
         name=ref.name,
         ecosystem=ref.ecosystem,
@@ -127,6 +128,7 @@ def _pypi_info(ref: PackageRef, data: dict[str, Any]) -> PackageInfo:
         created_at=min(dates) if dates else None,
         release_count=sum(1 for files in releases.values() if isinstance(files, list) and files),
         repo_url=_pypi_repo(project),
+        latest_version=version if isinstance(version, str) and version else None,
     )
 
 
@@ -145,7 +147,37 @@ def _npm_info(ref: PackageRef, data: dict[str, Any]) -> PackageInfo:
         release_count=len(versions),
         repo_url=_npm_repo(data.get("repository")),
         install_scripts=install_scripts,
+        latest_version=latest if isinstance(latest, str) and latest else None,
     )
+
+
+def _osv_payload(ref: PackageRef, version: str | None = None) -> dict[str, Any]:
+    payload: dict[str, Any] = {"package": {"name": ref.name, "ecosystem": "PyPI" if ref.ecosystem is Ecosystem.PYPI else "npm"}}
+    if version is not None:
+        payload["version"] = version
+    return payload
+
+
+async def _osv_query(client: httpx.AsyncClient, ref: PackageRef, version: str | None = None) -> tuple[list[str] | None, str | None]:
+    endpoint = "osv" if version is None else f"osv:{version}"
+    key = cache_key(ref.ecosystem.value, ref.name, endpoint)
+    cached = await _CACHE.get(key)
+    if isinstance(cached, dict) and isinstance(cached.get("ids"), list):
+        return [item for item in cached["ids"] if isinstance(item, str)], None
+    response, error = await _request(client, "POST", "https://api.osv.dev/v1/query", payload=_osv_payload(ref, version))
+    if error:
+        return None, error
+    if response is None:
+        return None, "api.osv.dev: request failed"
+    if response.status_code == 404:
+        return None, "api.osv.dev: HTTP 404"
+    try:
+        vulnerabilities = response.json().get("vulns", [])
+        ids = [item["id"] for item in vulnerabilities if isinstance(item, dict) and isinstance(item.get("id"), str)]
+    except ValueError:
+        return None, "osv: invalid response"
+    await _CACHE.set(key, {"ids": ids}, POSITIVE_TTL_SECONDS)
+    return ids, None
 
 
 async def _supplement(info: PackageInfo, ref: PackageRef, client: httpx.AsyncClient) -> PackageInfo:
@@ -154,10 +186,8 @@ async def _supplement(info: PackageInfo, ref: PackageRef, client: httpx.AsyncCli
         downloads_url = f"https://pypistats.org/api/packages/{encoded_name}/recent"
     else:
         downloads_url = f"https://api.npmjs.org/downloads/point/last-week/{encoded_name}"
-    osv_url = "https://api.osv.dev/v1/query"
-    osv_payload = {"package": {"name": ref.name, "ecosystem": "PyPI" if ref.ecosystem is Ecosystem.PYPI else "npm"}}
     downloads_result, osv_result = await asyncio.gather(
-        _request(client, "GET", downloads_url), _request(client, "POST", osv_url, payload=osv_payload), return_exceptions=True
+        _request(client, "GET", downloads_url), _osv_query(client, ref), return_exceptions=True
     )
     errors = list(info.lookup_errors)
     if isinstance(downloads_result, Exception):
@@ -182,18 +212,22 @@ async def _supplement(info: PackageInfo, ref: PackageRef, client: httpx.AsyncCli
     if isinstance(osv_result, Exception):
         errors.append("osv: unexpected failure")
     else:
-        response, error = osv_result
+        ids, error = osv_result
         if error:
             errors.append(f"osv: {error}")
-        elif response and response.status_code != 404:
-            try:
-                vulnerabilities = response.json().get("vulns", [])
-                info.osv_ids = [item["id"] for item in vulnerabilities if isinstance(item, dict) and isinstance(item.get("id"), str)]
-                info.osv_malicious = any(identifier.startswith("MAL-") for identifier in info.osv_ids)
-            except ValueError:
-                errors.append("osv: invalid response")
         else:
-            errors.append("osv: HTTP 404")
+            info.osv_ids = ids or []
+            has_malicious = any(identifier.startswith("MAL-") for identifier in info.osv_ids)
+            if has_malicious and info.latest_version:
+                versioned_ids, versioned_error = await _osv_query(client, ref, info.latest_version)
+                if versioned_error:
+                    info.osv_check_failed = True
+                    info.osv_malicious = False
+                    errors.append(f"osv: {versioned_error}")
+                else:
+                    info.osv_malicious = any(identifier.startswith("MAL-") for identifier in (versioned_ids or []))
+            else:
+                info.osv_malicious = False
     info.lookup_errors = errors
     return info
 

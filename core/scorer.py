@@ -11,6 +11,9 @@ def score_package(ref: PackageRef, info: PackageInfo, ctx: SignalContext | None 
     if info.exists is None:
         findings = [finding for finding in (signal(ref, info, ctx) for signal in SIGNALS) if finding and finding.signal == "lookup_failed"]
         return PackageVerdict(ref=ref, info=info, risk=0, verdict="UNKNOWN", findings=findings)
+    if info.osv_check_failed:
+        findings = [finding for finding in (signal(ref, info, ctx) for signal in SIGNALS) if finding and finding.signal == "advisory_unconfirmed"]
+        return PackageVerdict(ref=ref, info=info, risk=0, verdict="UNKNOWN", findings=findings)
     findings = [finding for signal in SIGNALS if (finding := signal(ref, info, ctx)) is not None]
     declared_phantom = info.exists is False and ref.confidence == "declared"
     malicious = info.osv_malicious
