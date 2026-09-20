@@ -3,45 +3,45 @@
   "label_conflicts": [],
   "operating_points": {
     "review": {
-      "accuracy": 0.9714285714285714,
+      "accuracy": 1.0,
       "confusion_matrix": {
         "actual_risky": {
           "flagged": 25,
           "not_flagged": 0
         },
         "actual_safe": {
-          "flagged": 2,
-          "not_flagged": 43
+          "flagged": 0,
+          "not_flagged": 45
         }
       },
-      "f1": 0.9615384615384615,
+      "f1": 1.0,
       "fn": 0,
-      "fp": 2,
-      "precision": 0.9259259259259259,
+      "fp": 0,
+      "precision": 1.0,
       "recall": 1.0,
       "threshold": "REVIEW",
-      "tn": 43,
+      "tn": 45,
       "tp": 25
     },
     "risky": {
-      "accuracy": 0.9714285714285714,
+      "accuracy": 1.0,
       "confusion_matrix": {
         "actual_risky": {
           "flagged": 25,
           "not_flagged": 0
         },
         "actual_safe": {
-          "flagged": 2,
-          "not_flagged": 43
+          "flagged": 0,
+          "not_flagged": 45
         }
       },
-      "f1": 0.9615384615384615,
+      "f1": 1.0,
       "fn": 0,
-      "fp": 2,
-      "precision": 0.9259259259259259,
+      "fp": 0,
+      "precision": 1.0,
       "recall": 1.0,
       "threshold": "RISKY",
-      "tn": 43,
+      "tn": 45,
       "tp": 25
     }
   },
@@ -180,45 +180,45 @@
     },
     "safe-popular": {
       "review": {
-        "accuracy": 0.9333333333333333,
+        "accuracy": 1.0,
         "confusion_matrix": {
           "actual_risky": {
             "flagged": 0,
             "not_flagged": 0
           },
           "actual_safe": {
-            "flagged": 2,
-            "not_flagged": 28
+            "flagged": 0,
+            "not_flagged": 30
           }
         },
         "f1": 0.0,
         "fn": 0,
-        "fp": 2,
+        "fp": 0,
         "precision": 0.0,
         "recall": 0.0,
         "threshold": "REVIEW",
-        "tn": 28,
+        "tn": 30,
         "tp": 0
       },
       "risky": {
-        "accuracy": 0.9333333333333333,
+        "accuracy": 1.0,
         "confusion_matrix": {
           "actual_risky": {
             "flagged": 0,
             "not_flagged": 0
           },
           "actual_safe": {
-            "flagged": 2,
-            "not_flagged": 28
+            "flagged": 0,
+            "not_flagged": 30
           }
         },
         "f1": 0.0,
         "fn": 0,
-        "fp": 2,
+        "fp": 0,
         "precision": 0.0,
         "recall": 0.0,
         "threshold": "RISKY",
-        "tn": 28,
+        "tn": 30,
         "tp": 0
       }
     }
@@ -428,17 +428,17 @@
       "exists": true,
       "findings": [
         {
-          "beginner_message": "Security researchers have identified this package as malware.",
-          "message": "A public advisory identifies this package as malicious.",
-          "points": 100,
-          "signal": "malicious_advisory"
+          "beginner_message": "A past version of this package was reported as malicious. The current version is not affected.",
+          "message": "An advisory exists for older versions only",
+          "points": 0,
+          "signal": "historical_advisory"
         }
       ],
       "label": "safe",
       "name": "axios",
       "note": "",
-      "risk": 100,
-      "verdict": "BLOCK"
+      "risk": 0,
+      "verdict": "OK"
     },
     {
       "category": "safe-popular",
@@ -545,17 +545,17 @@
       "exists": true,
       "findings": [
         {
-          "beginner_message": "Security researchers have identified this package as malware.",
-          "message": "A public advisory identifies this package as malicious.",
-          "points": 100,
-          "signal": "malicious_advisory"
+          "beginner_message": "A past version of this package was reported as malicious. The current version is not affected.",
+          "message": "An advisory exists for older versions only",
+          "points": 0,
+          "signal": "historical_advisory"
         }
       ],
       "label": "safe",
       "name": "chalk",
       "note": "",
-      "risk": 100,
-      "verdict": "BLOCK"
+      "risk": 0,
+      "verdict": "OK"
     },
     {
       "category": "safe-popular",

@@ -8,17 +8,17 @@ This evaluates the deterministic scorer against a small author-labelled corpus. 
 
 | TP | FP | TN | FN | Precision | Recall | F1 | Accuracy |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 25 | 2 | 43 | 0 | 92.6% | 100.0% | 96.2% | 97.1% |
+| 25 | 0 | 45 | 0 | 100.0% | 100.0% | 100.0% | 100.0% |
 
-Confusion matrix: actual risky → flagged/not flagged = 25/0; actual safe → flagged/not flagged = 2/43
+Confusion matrix: actual risky → flagged/not flagged = 25/0; actual safe → flagged/not flagged = 0/45
 
 ## Operating point: verdict ≥ RISKY
 
 | TP | FP | TN | FN | Precision | Recall | F1 | Accuracy |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 25 | 2 | 43 | 0 | 92.6% | 100.0% | 96.2% | 97.1% |
+| 25 | 0 | 45 | 0 | 100.0% | 100.0% | 100.0% | 100.0% |
 
-Confusion matrix: actual risky → flagged/not flagged = 25/0; actual safe → flagged/not flagged = 2/43
+Confusion matrix: actual risky → flagged/not flagged = 25/0; actual safe → flagged/not flagged = 0/45
 
 ## Per-category breakdown
 
@@ -33,13 +33,11 @@ Confusion matrix: actual risky → flagged/not flagged = 25/0; actual safe → f
 
 ### Verdict ≥ REVIEW
 
-- **false positive** `axios` (safe-popular; BLOCK): malicious_advisory: A public advisory identifies this package as malicious.
-- **false positive** `chalk` (safe-popular; BLOCK): malicious_advisory: A public advisory identifies this package as malicious.
+No false positives or false negatives.
 
 ### Verdict ≥ RISKY
 
-- **false positive** `axios` (safe-popular; BLOCK): malicious_advisory: A public advisory identifies this package as malicious.
-- **false positive** `chalk` (safe-popular; BLOCK): malicious_advisory: A public advisory identifies this package as malicious.
+No false positives or false negatives.
 
 ## Exclusions and label conflicts
 

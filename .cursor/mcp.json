@@ -1,0 +1,10 @@
+﻿{
+    "mcpServers":  {
+                       "slopguard":  {
+                                         "args":  [
+                                                      "C:\\Users\\dell\\SlopGuard--1\\mcp_server\\server.py"
+                                                  ],
+                                         "command":  "C:\\Users\\dell\\SlopGuard--1\\.venv-mcp\\Scripts\\python.exe"
+                                     }
+                   }
+}

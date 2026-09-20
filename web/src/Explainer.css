@@ -1,0 +1,34 @@
+.sg-explainer { max-width: 720px; margin: 0 auto; padding: 1rem; }
+.sg-explainer h2 { margin: 0 0 .25rem; }
+.sg-sub { margin: 0 0 1rem; opacity: .7; }
+.sg-dots { display: flex; gap: .5rem; list-style: none; padding: 0; margin: 0 0 1rem; }
+.sg-dots button, .sg-controls button {
+  font: inherit; color: inherit; cursor: pointer;
+  border: 1px solid rgba(127,127,127,.45); background: rgba(127,127,127,.1);
+  border-radius: 999px; padding: .4rem .9rem;
+}
+.sg-dots button { width: 2.2rem; height: 2.2rem; padding: 0; }
+.sg-dots button.on { background: #00bfa5; border-color: #00bfa5; color: #04211d; font-weight: 700; }
+.sg-controls button:disabled { opacity: .4; cursor: not-allowed; }
+.sg-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.sg-controls .sg-primary { background: #00bfa5; border-color: #00bfa5; color: #04211d; font-weight: 700; }
+.sg-dots button:focus-visible, .sg-controls button:focus-visible { outline: 3px solid #00bfa5; outline-offset: 2px; }
+.sg-scene { border: 1px solid rgba(127,127,127,.3); border-radius: 12px; padding: .75rem; animation: sg-in .35s ease both; }
+.sg-scene svg { width: 100%; height: auto; display: block; color: inherit; }
+.sg-copy h3 { margin: 1rem 0 .25rem; }
+.sg-copy p { margin: 0; line-height: 1.5; }
+.sg-honest { margin-top: 1.25rem; font-size: .85rem; opacity: .7; }
+.sg-t { fill: currentColor; font: 13px system-ui, sans-serif; }
+.sg-mono { fill: currentColor; font: 12px ui-monospace, Consolas, monospace; }
+.sg-dim { opacity: .65; }
+.sg-soft { fill: rgba(127,127,127,.12); stroke: rgba(127,127,127,.4); }
+.sg-bad { fill: rgba(229,72,77,.15); stroke: #e5484d; }
+.sg-badtxt, .sg-danger { fill: #e5484d; }
+.sg-term { fill: #0b1220; stroke: rgba(127,127,127,.4); }
+.sg-termtxt { fill: #d7e3f4; }
+.sg-badge { fill: #e5484d; }
+.sg-badgetxt { fill: #fff; font-weight: 700; }
+.sg-ok { fill: #00a389; font-weight: 600; }
+.sg-arrow { stroke: currentColor; stroke-width: 3; fill: none; opacity: .6; }
+@keyframes sg-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .sg-scene { animation: none; } }

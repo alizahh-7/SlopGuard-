@@ -9,3 +9,5 @@ web/dist/
 bench/cache/
 bench/results/private/
 .DS_Store
+
+.venv-mcp/

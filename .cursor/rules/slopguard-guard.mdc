@@ -1,0 +1,8 @@
+---
+description: Verify dependencies with SlopGuard before installing
+alwaysApply: true
+---
+Before running any pip, npm, yarn or pnpm install/add command, or suggesting a new dependency, call the slopguard MCP tool check_install_command with the exact command.
+- Never install packages whose verdict is BLOCK or RISKY.
+- For REVIEW or UNKNOWN, stop and ask the user before installing.
+- If a suggested alternative exists, propose it and ask the user to confirm.

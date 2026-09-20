@@ -1,0 +1,20 @@
+.fx { margin-top: 1.25rem; padding: 1rem; border: 1px solid rgba(127,127,127,.35); border-radius: 12px; background: rgba(127,127,127,.06); }
+.fx-head { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: space-between; }
+.fx h2 { margin: 0 0 .2rem; font-size: 1.15rem; }
+.fx-muted { margin: .15rem 0 0; opacity: .7; font-size: .9rem; }
+.fx button { font: inherit; color: inherit; cursor: pointer; border: 1px solid rgba(127,127,127,.5); background: rgba(127,127,127,.12); border-radius: 999px; padding: .45rem 1rem; }
+.fx button:disabled { opacity: .5; cursor: wait; }
+.fx .fx-primary { background: #00bfa5; border-color: #00bfa5; color: #04211d; font-weight: 700; }
+.fx button:focus-visible { outline: 3px solid #00bfa5; outline-offset: 2px; }
+.fx-error { color: #e5484d; font-weight: 600; }
+.fx-changes { list-style: none; padding: 0; margin: .5rem 0; display: grid; gap: .5rem; }
+.fx-tag { font-size: .75rem; padding: .1rem .5rem; border-radius: 999px; border: 1px solid rgba(127,127,127,.5); margin-left: .35rem; }
+.fx-review { font-size: .75rem; padding: .1rem .5rem; border-radius: 999px; background: rgba(240,180,41,.25); border: 1px solid #f0b429; margin-left: .35rem; }
+.fx-diff { margin: .75rem 0; padding: .75rem; border-radius: 8px; overflow-x: auto; background: #0b1220; color: #d7e3f4; font: 12.5px/1.5 ui-monospace, Consolas, monospace; }
+.fx-diff span { display: block; white-space: pre; }
+.fx-add { background: rgba(0,191,165,.2); color: #7ff0dd; }
+.fx-del { background: rgba(229,72,77,.22); color: #ff9da0; }
+.fx-hunk { color: #8aa0c0; }
+.fx-meta { color: #8aa0c0; font-weight: 700; }
+.fx-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.fx-warn { margin: .75rem 0 0; font-size: .85rem; opacity: .8; }

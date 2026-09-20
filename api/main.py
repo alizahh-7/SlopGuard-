@@ -53,11 +53,11 @@ app.add_middleware(
 @app.middleware("http")
 async def harden_requests(request: Request, call_next):
     content_length = request.headers.get("content-length")
-    if request.url.path == "/api/scan" and content_length and content_length.isdigit() and int(content_length) > MAX_BODY_BYTES:
+    if request.url.path in ("/api/scan", "/api/fix") and content_length and content_length.isdigit() and int(content_length) > MAX_BODY_BYTES:
         response = JSONResponse({"detail": "request body exceeds the 200 KB limit"}, status_code=413)
         add_security_headers(response.headers, request.url.path)
         return response
-    if request.url.path == "/api/scan":
+    if request.url.path in ("/api/scan", "/api/fix"):
         # Starlette caches this body for downstream validation; it is never logged or persisted.
         if len(await request.body()) > MAX_BODY_BYTES:
             response = JSONResponse({"detail": "request body exceeds the 200 KB limit"}, status_code=413)
@@ -116,6 +116,18 @@ async def scan(payload: ScanRequest) -> ScanResult | JSONResponse:
         int((time.monotonic() - started) * 1000),
     )
     return result
+
+
+@app.post("/api/fix")
+async def fix(payload: ScanRequest):
+    from core.remediate import remediate
+
+    result = await scan(payload)
+    if isinstance(result, JSONResponse):
+        return result
+    fixed = remediate(payload.content, payload.kind, result)
+    fixed["summary"] = result.summary.model_dump(mode="json")
+    return fixed
 
 
 @app.get("/api/samples")
