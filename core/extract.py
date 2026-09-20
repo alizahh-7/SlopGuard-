@@ -13,7 +13,7 @@ from .models import Ecosystem, PackageRef
 # Import names that differ from their PyPI distribution names.
 IMPORT_TO_PACKAGE = {
     "PIL": "pillow", "Crypto": "pycryptodome", "MySQLdb": "mysqlclient",
-    "OpenSSL": "pyopenssl", "attr": "attrs", "babel": "babel", "bs4": "beautifulsoup4",
+    "OpenSSL": "pyopenssl", "attr": "attrs", "babel": "babel", "bs4": "beautifulsoup4", "serial": "pyserial",
     "cv2": "opencv-python", "dateutil": "python-dateutil", "dotenv": "python-dotenv",
     "docx": "python-docx", "fitz": "pymupdf", "google.generativeai": "google-generativeai",
     "jwt": "pyjwt", "magic": "python-magic", "skimage": "scikit-image",
