@@ -8,8 +8,8 @@ Built for the **TLN Cybersecurity Challenge 2026**.
 
 | | |
 |---|---|
-| Live demo | `TODO: paste Vercel URL` |
-| API health | `TODO: paste Render URL`/api/health |
+| Live demo | https://slop-guard.vercel.app |
+| API health | https://slopguard-api.vercel.app/api/health |
 | Demo video | `TODO: paste video link` |
 | Repository | https://github.com/alizahh-7/SlopGuard- |
 
