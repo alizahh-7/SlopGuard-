@@ -10,7 +10,6 @@ Built for the **TLN Cybersecurity Challenge 2026**.
 |---|---|
 | Live demo | https://slop-guard.vercel.app |
 | API health | https://slopguard-api.vercel.app/api/health |
-| Demo video | (https://youtu.be/AfIToHRgUqk) |
 | Repository | https://github.com/alizahh-7/SlopGuard- |
 
 ## Contents
